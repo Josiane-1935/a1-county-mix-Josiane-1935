@@ -495,7 +495,7 @@ $Kiambu,$Turkana,$WestPokot,$Samburu,$Uasingishu,$ElgeyoMarakwet,$Nandi,$Baringo
      font-family: serif;
      border-collapse: collapse;
      border: 1px solid #ddd;
-     font-size: 18px;
+     font-size: 20px;
      width: 85%;
      margin: 0 auto;
      text-align: justify;
