@@ -58,14 +58,10 @@ $county_data = "1. Mombasa. – Hassan Ali Joho – ODM,
 */
 
 // @TODO : Your code starts here
-//echo "<pre>".$county_data."</pre>";
-$string_pos=strpos($county_data, '30');echo "<br>";
 
-//echo "<pre>";
+
 $county_data_array= explode (',' , $county_data);
-$array_values = array_values($county_data_array);
-//var_dump($array_values);
-//echo "</pre>";
+
 
 $substring = substr($county_data,0,39);
 $strreplace=str_replace("1.","1–",$substring);
@@ -233,12 +229,13 @@ $KirinyagaSite='<a href="https://www.kirinyaga.go.ke">https://www.kirinyaga.go.k
 array_push($Kirinyaga,$KirinyagaSite);
 
 
-$substring20 = substr($county_data,923,44);
+$substring20 = substr($county_data,923,45);
 $substring20_0=str_replace(","," ",$substring20);
 $strreplace20_1=str_replace("21.","21–",$substring20_0);
 $Murang’a=explode('–',$strreplace20_1);
 $Murang’aSite='<a href="https://muranga.go.ke">https://muranga.go.ke</a>';
 array_push($Murang’a,$Murang’aSite);
+
 
 
 $substring21 = substr($county_data,971,55);
@@ -481,24 +478,36 @@ $NairobiSite='<a href="https://nairobi.go.ke" target="_blank">https://nairobi.go
 array_push($Nairobi,$NairobiSite);
 
 
-echo "<pre>";
+
 $county_data_array1=[$mombasa,$kwale,$kilifi,$TanaRiver,$Lamu,$TaitaTaveta,$Garissa,$Wajir,$Mandera,$Marsabit,$Isiolo,$Meru,$TharakaNithi,$Embu,$Kitui,$Machakos,$Makueni,$Nyandarua,$Nyeri,$Kirinyaga,$Murang’a,
 $Kiambu,$Turkana,$WestPokot,$Samburu,$Uasingishu,$ElgeyoMarakwet,$Nandi,$Baringo,$laikipia,$Nakuru,$Narok,$Kajiado,$Kericho,$Bomet,$Kakamega,$Vihiga,$Bungoma,$Busia,$Siaya,$Kisumu,$HomaBay,$Migori,$Kisii,$Nyamira, $Nairobi];
-print_r($county_data_array1);
-echo "</pre>";
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>a1-county-mix-Josiane-1935</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
    #county_data
    {
-     font-family: sans-serif, Arial;
+     font-family: serif;
      border-collapse: collapse;
-     width: 100%;
+     border: 1px solid #ddd;
+     font-size: 18px;
+     width: 85%;
+     margin: 0 auto;
+     text-align: justify;
     }
+    * {
+      box-sizing: border-box;
+    }
+    tfoot {
+      font-family: serif;
+      font-size: 18px;
+    }
+
     #county_data td, #county_data th
     {
       border: 1px solid #ddd;
@@ -508,26 +517,48 @@ echo "</pre>";
     {
       background-color: #f2f2f2;
     }
+    #county_data tr.header, #county_data tr:hover {
+      background-color: #f1f1f1;
+    }
     #county_data th
     {
       padding-top: 12px;
       padding-bottom: 12px;
       text-align: left;
-      background-color: #4CAF50;
+      background-color: #006400;
       color: white;
     }
+    h2 {
+      text-align: center;
+    }
+    span {
+      color: #B22222;
+    }
+    #img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 50%;
+      width: 20%;
+}
 
 </style>
 </head>
 <body>
 
+  <img src="images/kenya.png" alt="kenyaFlag" id="img" >
+  <h2 >KENYA'S COUNTIES</h2>
+
+
   <table id="county_data">
-    <thead>
+    <!-- <thead> -->
+    <tr class="header">
       <th >Number</th>
       <th >Name</th>
       <th >Governor</th>
       <th >Website</th>
-    </thead>
+    </tr>
+    <!-- </thead> -->
     <tbody>
       <?php
       $county_data1=$county_data_array1;
@@ -535,51 +566,69 @@ echo "</pre>";
       foreach ($county_data1 as $row):
        ?>
        <tr>
-         <td ><?=$row[0];  ?></td>
-         <td ><?php echo $row[1];
+         <td width="5%"><?=$row[0];  ?></td>
+         <td width="10%"><?php echo $row[1];
          ?></td>
-         <td ><?php echo $row[2]; echo $row[3];
+         <td width="20%"><?php echo $row[2];
          if($row[0] == 1 || $row[0] == 3 || $row[0] == 4 || $row[0] == 23 || $row[0] ==37 || $row[0] == 38 || $row[0] == 39 || $row[0] == 40 )
          {
-           echo '<img src="images/odm.png" alt="ODM" style="width:5%">';
+           echo '<img src="images/odm.png" alt="ODM" style="width:10%">';
          }
          elseif ($row[0] == 41 || $row[0] == 42 || $row[0] == 43 || $row[0] == 44 || $row[0] == 45 || $row[0] == 46) {
-           echo '<img src="images/odm.png" alt="ODM" style="width:5%">';
+           echo '<img src="images/odm.png" alt="ODM" style="width:10%">';
          }
          elseif ($row[0] == 6 || $row[0] == 17 ) {
-           echo '<img src="images/wdm-k.jpg" alt="WDM-K" style="width:5%">';
+           echo '<img src="images/wdm-k.jpg" alt="WDM-K" style="width:10%">';
          }
          elseif ($row[0] == 26) {
-           echo '<img src="images/ford.png" alt="FORD" style="width:5%">';
+           echo '<img src="images/ford.png" alt="FORD" style="width:10%">';
          }
          elseif ($row[0] == 24) {
-           echo '<img src="images/kanu.jpg" alt="KANU" style="width:6%">';
+           echo '<img src="images/kanu.jpg" alt="KANU" style="width:10%">';
          }
          elseif ($row[0] == 16) {
-           echo '<img src="images/ccm.jpg" alt="CCM" style="width:5%">';
+           echo '<img src="images/ccm.jpg" alt="CCM" style="width:10%">';
          }
          elseif ($row[0] == 15) {
-           echo '<img src="images/narc_kenya.jpg" alt="NARC-KENYA" style="width:6%">';
+           echo '<img src="images/narc_kenya.jpg" alt="NARC-KENYA" style="width:10%">';
          }
          elseif ($row[0] == 11 || $row[0] == 31 ) {
-           echo '<img src="images/independent.png" alt="Independent" style="width:5%">';
+           echo '<img src="images/independent.png" alt="Independent" style="width:10%">';
          }
          else {
-           echo '<img src="images/Jubilee.png" alt="Jubilee" style="width:5%">';
+           echo '<img src="images/Jubilee.png" alt="Jubilee" style="width:10%">';
          } ?></td>
-         <td><?=$row[4]; ?></td>
+         <td width="20%"><?=$row[4]; ?></td>
        </tr>
-       <?php $count = $row[3];
-           $array=explode(" ",$count);
-           echo "<pre>";
-          print_r($array);
-          echo "</pre>";
-       ?>
+
      <?php endforeach; ?>
 
     </tbody>
+    <tfoot>
+      <th colspan="2">Distribution of the political parties</th>
+      <td >
+      <?php
+      $string_count_jubilee=substr_count($county_data,"Jubilee");
+      $string_count_odm=substr_count($county_data,"ODM");
+      $string_count_ford=substr_count($county_data,"FORD");
+      $string_count_kanu=substr_count($county_data,"KANU");
+      $string_count_ccm=substr_count($county_data,"CCM");
+      $string_count_nark=substr_count($county_data,"Narc");
+      $string_count_wdm=substr_count($county_data,"WDM");
+      $string_count_independent=substr_count($county_data,"Independent");
+      echo "<span>".$string_count_jubilee."</span> Governors are from <span>Jubilee</span>.<br> ";
+      echo "<span>".$string_count_odm."</span> Governors are from <span>ODM</span>.<br> ";
+      echo "<span>".$string_count_wdm."</span> Governors are from <span>WDM K</span>.<br> ";
+      echo "<span>".$string_count_independent."</span>  Governors are from <span>Independent</span>.<br> ";
+      echo "<span>".$string_count_ford."</span>  Governor is from <span>FORD Kenya</span>.<br> ";
+      echo "<span>".$string_count_kanu."</span>  Governor is from <span>KANU</span>.<br> ";
+      echo "<span>".$string_count_ccm."</span>  Governor is from <span>CCM</span>.<br> ";
+      echo "<span>".$string_count_nark."</span>  Governor is from <span>NARC Kenya</span>.<br> ";
 
+       ?>
+     </td>
+     <td ></td>
 
+    </tfoot>
   </table>
-
 </html>
